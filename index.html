@@ -96,6 +96,18 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 .yt-stats{display:flex;gap:0.8rem;margin-top:0.4rem}
 .yt-stat{font-size:10px;color:#aaa}
 
+.kol-yt-card{background:#fff;border-radius:10px;border:0.5px solid #ddd;overflow:hidden;display:flex;align-items:center;text-decoration:none;color:inherit;transition:transform 0.2s ease,box-shadow 0.2s ease;cursor:pointer}
+.kol-yt-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.09)}
+.kol-yt-left{width:52px;min-width:52px;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:stretch}
+.kol-yt-info{padding:0.5rem 0.65rem;flex:1;min-width:0}
+.kol-yt-name{font-size:11.5px;font-weight:700;color:#111;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kol-yt-sub{font-size:10.5px;font-weight:700;color:#ff4444;margin-bottom:2px}
+.kol-yt-tag{font-size:9px;color:#bbb;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kol-yt-play{width:28px;height:28px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,0.3);font-size:11px;color:#fff;transition:background 0.2s,transform 0.2s}
+.kol-yt-card:hover .kol-yt-play{background:rgba(255,68,68,0.85);transform:scale(1.1)}
+.kol-yt-arrow{font-size:11px;color:#ccc;padding-right:0.65rem;flex-shrink:0;transition:transform 0.2s,color 0.2s}
+.kol-yt-card:hover .kol-yt-arrow{transform:translate(2px,-2px);color:#888}
+
 .ks-card{background:#05ce78;border-radius:13px;overflow:hidden;display:flex;align-items:stretch;margin-bottom:0.55rem;transition:transform 0.25s ease,box-shadow 0.25s ease;cursor:pointer;text-decoration:none;color:inherit}
 .ks-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(5,206,120,0.3)}
 .ks-left{padding:1rem 1.1rem;flex:1}
@@ -137,10 +149,12 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
   .g2{grid-template-columns:1fr}
   .hn{font-size:38px}
   .yt-thumb{width:100px;min-width:100px}
-  .c3-img-row{grid-template-columns:1fr}
-  .c3-img-item{aspect-ratio:4/3}
-  .photo-row{grid-template-columns:repeat(2,1fr)}
-  .photo-row-item{height:120px}
+  .c3-img-row{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0.55rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:0.3rem}
+  .c3-img-row::-webkit-scrollbar{display:none}
+  .c3-img-item{flex:0 0 72vw;max-width:72vw;scroll-snap-align:start;aspect-ratio:16/9}
+  .photo-row{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0.55rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:0.3rem}
+  .photo-row::-webkit-scrollbar{display:none}
+  .photo-row-item{flex:0 0 72vw;max-width:72vw;height:140px;scroll-snap-align:start}
   .ig-link-row{flex-direction:column}
   .footer-top{grid-template-columns:1fr}
   .ks-right{display:none}
@@ -154,41 +168,52 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 .footer-contact-phone{font-size:13px;color:#777;text-decoration:none;display:block;margin-top:0.4rem}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center}
 .fb-copy{font-size:11px;color:#aaa;letter-spacing:0.04em}
+
+/* 语言切换按钮 */
+.lang-btn{display:inline-flex;background:#111;border-radius:20px;padding:3px;gap:2px;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+.lang-opt{font-size:10px;font-weight:700;letter-spacing:0.08em;color:#888;padding:4px 10px;border-radius:16px;cursor:pointer;transition:background 0.18s,color 0.18s;user-select:none}
+.lang-opt.active{background:#fff;color:#111}
 </style>
 </head>
 <body>
+
+
 <div class="page-wrap">
 
 <!-- HERO -->
 <div class="hero reveal">
   <div>
     <div class="hn">Scarlett<br>Yang</div>
-    <div class="hd">海外品牌营销 · KOL策略 · 品牌冷启动<br><br>过去四年，主导智能硬件品牌在欧美日市场从0到1的上市。擅长以人群策略为起点，整合KOL、PR与视觉内容，打通从曝光到转化的完整链路。</div>
-    <div style="margin-bottom:0.4rem"><div class="hs-label">关键指标</div></div>
+    <div class="hd" data-i18n="hd">海外品牌营销 · KOL策略 · 品牌冷启动<br><br>过去四年，主导智能硬件品牌在欧美日市场从0到1的上市。擅长以人群策略为起点，整合KOL、PR与视觉内容，打通从曝光到转化的完整链路。</div>
+    <div style="margin-bottom:0.4rem"><div class="hs-label" data-i18n="hs-label">关键指标</div></div>
     <div class="hs">
-      <div><div class="hsn">+217%</div><div class="hsl">年GMV增长</div></div>
-      <div><div class="hsn">$324万</div><div class="hsl">众筹累计</div></div>
-      <div><div class="hsn">96%</div><div class="hsl">KOL匹配率</div></div>
+      <div><div class="hsn">+217%</div><div class="hsl" data-i18n="hsl-gmv">年GMV增长</div></div>
+      <div><div class="hsn" data-i18n="hsn-crowd">$324万</div><div class="hsl" data-i18n="hsl-crowd">众筹累计</div></div>
+      <div><div class="hsn">96%</div><div class="hsl" data-i18n="hsl-kol">KOL匹配率</div></div>
+    </div>
+    <div class="lang-btn" id="langBtn" style="margin-top:1.4rem">
+      <div class="lang-opt active" data-lang="zh" onclick="setLang('zh')">ZH</div>
+      <div class="lang-opt" data-lang="en" onclick="setLang('en')">EN</div>
     </div>
   </div>
   <div class="hr">
-    <div class="pill pa reveal reveal-delay-1"><div class="ps"><span class="pd"></span>ACTIVE</div><div class="pt">高端显示器品牌0到1冷启动，预计8月上线</div><div class="ptags"><span class="tg tga">#策略</span><span class="tg tga">#显示器</span><span class="tg tga">#进行中</span><span class="tg tga">#MasterBeast</span></div></div>
-    <div class="pill pg reveal reveal-delay-2"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt">0预算撬动179万粉博主自费测评，当月销量+400%</div><div class="ptags"><span class="tg tgg">#KOL</span><span class="tg tgg">#Yoshino Power</span><span class="tg tgg">#危机处理</span></div></div>
-    <div class="pill pp reveal reveal-delay-3"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt">跨时区视觉体系，广告CTR达行业均值3.5倍</div><div class="ptags"><span class="tg tgp">#视觉</span><span class="tg tgp">#A/B测试</span><span class="tg tgp">#Yoshino Power</span></div></div>
-    <div class="pill pb reveal reveal-delay-4"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt">Kickstarter单项目众筹$111万，超额5595%</div><div class="ptags"><span class="tg tgb">#众筹</span><span class="tg tgb">#全链路</span><span class="tg tgb">#3D打印</span></div></div>
+    <div class="pill pa reveal reveal-delay-1"><div class="ps"><span class="pd"></span>ACTIVE</div><div class="pt" data-i18n="pill1">高端显示器品牌0到1冷启动，预计8月上线</div><div class="ptags"><span class="tg tga" data-i18n="tag1a">#策略</span><span class="tg tga" data-i18n="tag1b">#显示器</span><span class="tg tga" data-i18n="tag1c">#进行中</span><span class="tg tga">#MasterBeast</span></div></div>
+    <div class="pill pg reveal reveal-delay-2"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill2">0预算撬动179万粉博主自费测评，当月销量+400%</div><div class="ptags"><span class="tg tgg">#KOL</span><span class="tg tgg">#Yoshino Power</span><span class="tg tgg" data-i18n="tag2c">#危机处理</span></div></div>
+    <div class="pill pp reveal reveal-delay-3"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill3">跨时区视觉体系，广告CTR达行业均值3.5倍</div><div class="ptags"><span class="tg tgp" data-i18n="tag3a">#视觉</span><span class="tg tgp" data-i18n="tag3b">#A/B测试</span><span class="tg tgp">#Yoshino Power</span></div></div>
+    <div class="pill pb reveal reveal-delay-4"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill4">Kickstarter单项目众筹$111万，超额5595%</div><div class="ptags"><span class="tg tgb" data-i18n="tag4a">#众筹</span><span class="tg tgb" data-i18n="tag4b">#全链路</span><span class="tg tgb" data-i18n="tag4c">#3D打印</span></div></div>
   </div>
 </div>
 
 <!-- CASE 01 -->
 <div class="div"></div>
-<div class="cl reveal">CASE 01 · MASTERBEAST × 超火游戏</div>
+<div class="cl reveal"><span data-i18n="cl1">CASE 01 · MASTERBEAST × 超火游戏</span></div>
 <div class="cb">
-  <div class="ct reveal"><div class="cn">01</div><div><div class="ctit">高端显示器品牌，0到1冷启动 <span class="ba">ACTIVE</span></div><div class="chk">不打参数战，打审美和身份认同——在红海品类里找到差异化的人群切口</div></div></div>
+  <div class="ct reveal"><div class="cn">01</div><div><div class="ctit" data-i18n="c1-title">高端显示器品牌，0到1冷启动 <span class="ba">ACTIVE</span></div><div class="chk" data-i18n="c1-sub">不打参数战，打审美和身份认同——在红海品类里找到差异化的人群切口</div></div></div>
   <div class="g3">
-    <div class="cd reveal reveal-delay-1"><div class="cdl">核心洞察</div><div class="cdb">显示器是红海品类，大品牌靠参数和预算碾压。我的判断：锚定三类高价值细分人群——摄影/设计工作者（色准需求）、高端游戏玩家（颜值+画质）、高审美年轻职场人（桌面美学）。共同特征：在社媒上有强烈的自发分享意愿，是天然UGC来源。</div></div>
+    <div class="cd reveal reveal-delay-1"><div class="cdl" data-i18n="c1-l1">核心洞察</div><div class="cdb" data-i18n="c1-d1">显示器是红海品类，大品牌靠参数和预算碾压。我的判断：锚定三类高价值细分人群——摄影/设计工作者（色准需求）、高端游戏玩家（颜值+画质）、高审美年轻职场人（桌面美学）。共同特征：在社媒上有强烈的自发分享意愿，是天然UGC来源。</div></div>
     <div class="cd reveal reveal-delay-2">
-      <div class="cdl">KOL策略</div>
-      <div class="cdb">不找「科技博主」，找「品味标签」。合作方向：Teenage Engineering（克制美感背书）、David Yuan（创作者社群核心锚点）。触达600+创作者，筛选57位，匹配率96%。</div>
+      <div class="cdl" data-i18n="c1-l2">KOL策略</div>
+      <div class="cdb" data-i18n="c1-d2">不找「科技博主」，找「品味标签」。合作方向：Teenage Engineering（克制美感背书）、David Yuan（创作者社群核心锚点）。触达600+创作者，筛选57位，匹配率96%。</div>
       <div class="kol-tags">
         <span class="kol-tag">Olliur</span>
         <span class="kol-tag">Unbox Therapy</span>
@@ -196,7 +221,7 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
         <span class="kol-tag">Teenage Engineering</span>
       </div>
     </div>
-    <div class="cd reveal reveal-delay-3"><div class="cdl">当前进度</div><div class="cdb"><div class="chlist"><div class="chi"><div class="dot don"></div>网站 & Instagram搭建完成</div><div class="chi"><div class="dot don"></div>50张核心视觉素材就位</div><div class="chi"><div class="dot don"></div>57位KOL合作意向确认</div><div class="chi"><div class="dot dof"></div><span style="color:#aaa">Reddit/Discord · 规划中</span></div></div></div></div>
+    <div class="cd reveal reveal-delay-3"><div class="cdl" data-i18n="c1-l3">当前进度</div><div class="cdb" data-i18n="c1-d3"><div class="chlist"><div class="chi"><div class="dot don"></div><span data-i18n="c1-prog1">网站 & Instagram搭建完成</span></div><div class="chi"><div class="dot don"></div><span data-i18n="c1-prog2">50张核心视觉素材就位</span></div><div class="chi"><div class="dot don"></div><span data-i18n="c1-prog3">57位KOL合作意向确认</span></div><div class="chi"><div class="dot dof"></div><span style="color:#aaa">Reddit/Discord · 规划中</span></div></div></div></div>
   </div>
 
   <!-- 4张图 统一16:9 横排 -->
@@ -205,29 +230,69 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
   <!-- 前3个stat cards -->
   <div class="g3 reveal">
     <div class="sc ssa reveal-delay-1">
-      <div class="sc-lbl">冷开发触达创作者</div>
+      <div class="sc-lbl" data-i18n="c1-s1l">冷开发触达创作者</div>
       <div class="sc-row"><span class="sc-num">600+</span></div>
       <div class="sc-bar-wrap"><div class="sc-bar" style="width:100%"></div></div>
-      <div class="sc-bar-note">创作者触达规模</div>
+      <div class="sc-bar-note" data-i18n="c1-s1n">创作者触达规模</div>
     </div>
     <div class="sc ssa reveal-delay-2">
-      <div class="sc-lbl">确认合作意向</div>
-      <div class="sc-row"><span class="sc-num">57位</span></div>
+      <div class="sc-lbl" data-i18n="c1-s2l">确认合作意向</div>
+      <div class="sc-row"><span class="sc-num" data-i18n="c1-s2v">57位</span></div>
       <div class="sc-bar-wrap"><div class="sc-bar" style="width:9.5%"></div></div>
-      <div class="sc-bar-note">命中率 9.5%</div>
+      <div class="sc-bar-note" data-i18n="c1-s2n">命中率 9.5%</div>
     </div>
     <div class="sc ssa reveal-delay-3">
-      <div class="sc-lbl">人群匹配率</div>
+      <div class="sc-lbl" data-i18n="c1-s3l">人群匹配率</div>
       <div class="sc-row"><span class="sc-num">96%</span><span class="sc-badge">↑</span></div>
       <div class="sc-bar-wrap"><div class="sc-bar" style="width:96%"></div></div>
-      <div class="sc-bar-note">高于行业均值</div>
+      <div class="sc-bar-note" data-i18n="c1-s3n">高于行业均值</div>
     </div>
+  </div>
+
+  <!-- 已确认合作 KOL -->
+  <div class="g4 reveal" style="margin-bottom:0.55rem">
+    <a class="kol-yt-card reveal-delay-1" href="https://www.youtube.com/shortcircuit" target="_blank" rel="noopener">
+      <div class="kol-yt-left"><div class="kol-yt-play">▶</div></div>
+      <div class="kol-yt-info">
+        <div class="kol-yt-name">ShortCircuit</div>
+        <div class="kol-yt-sub" data-i18n="kol1-sub">253万 订阅</div>
+        <div class="kol-yt-tag" data-i18n="kol-tag-tech">科技开箱 · 已确认合作</div>
+      </div>
+      <div class="kol-yt-arrow">↗</div>
+    </a>
+    <a class="kol-yt-card reveal-delay-2" href="https://www.youtube.com/unboxtherapy" target="_blank" rel="noopener">
+      <div class="kol-yt-left"><div class="kol-yt-play">▶</div></div>
+      <div class="kol-yt-info">
+        <div class="kol-yt-name">Unbox Therapy</div>
+        <div class="kol-yt-sub" data-i18n="kol2-sub">2540万 订阅</div>
+        <div class="kol-yt-tag" data-i18n="kol-tag-tech2">科技开箱 · 已确认合作</div>
+      </div>
+      <div class="kol-yt-arrow">↗</div>
+    </a>
+    <a class="kol-yt-card reveal-delay-3" href="https://www.youtube.com/@Oliur" target="_blank" rel="noopener">
+      <div class="kol-yt-left"><div class="kol-yt-play">▶</div></div>
+      <div class="kol-yt-info">
+        <div class="kol-yt-name">Oliur / UltraLinx</div>
+        <div class="kol-yt-sub" data-i18n="kol3-sub">45.7万 订阅</div>
+        <div class="kol-yt-tag" data-i18n="kol3-tag">极简美学 · 桌面设计 · 已确认合作</div>
+      </div>
+      <div class="kol-yt-arrow">↗</div>
+    </a>
+    <a class="kol-yt-card reveal-delay-4" href="https://www.youtube.com/@tobalog_toba" target="_blank" rel="noopener">
+      <div class="kol-yt-left"><div class="kol-yt-play">▶</div></div>
+      <div class="kol-yt-info">
+        <div class="kol-yt-name">tobalog / toba</div>
+        <div class="kol-yt-sub" data-i18n="kol4-sub">26.5万 订阅</div>
+        <div class="kol-yt-tag" data-i18n="kol4-tag">日系桌面 · 生产力美学 · 已确认合作</div>
+      </div>
+      <div class="kol-yt-arrow">↗</div>
+    </a>
   </div>
 
   <!-- 上线节点 — 小字说明条 -->
   <div class="timeline-note reveal">
     <div class="timeline-dot"></div>
-    <div class="timeline-text"><strong>预计上线节点：Aug 2025</strong> · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV</div>
+    <div class="timeline-text"><strong data-i18n="tl-strong">预计上线节点：Aug 2025</strong><span data-i18n="tl-text"> · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV</span></div>
   </div>
 </div>
 
@@ -235,11 +300,11 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 <div class="div"></div>
 <div class="cl reveal">CASE 02 · YOSHINO POWER × UNDECIDED WITH MATT FERRELL</div>
 <div class="cb">
-  <div class="ct reveal"><div class="cn">02</div><div><div class="ctit">0预算，179万粉博主自费测评</div><div class="chk">一次精准的pitch，胜过百万投放预算——当月销量+400%，搜索热度×10</div></div></div>
+  <div class="ct reveal"><div class="cn">02</div><div><div class="ctit" data-i18n="c2-title">0预算，179万粉博主自费测评</div><div class="chk" data-i18n="c2-sub">一次精准的pitch，胜过百万投放预算——当月销量+400%，搜索热度×10</div></div></div>
   <div class="g3">
-    <div class="cd reveal reveal-delay-1"><div class="cdl">背景</div><div class="cdb">Yoshino Power 主打固态电池技术，进入欧美市场时品牌认知几乎为零，预算有限，无法依赖大规模付费投放。</div></div>
-    <div class="cd reveal reveal-delay-2"><div class="cdl">洞察</div><div class="cdb">Matt Ferrell，179万订阅的新能源科普博主。他的受众对技术细节有强烈好奇心——恰恰是储能品牌最难触达也最值得触达的早期采用者。关键判断：他不是「科技网红」，他是这个品类的意见领袖。</div></div>
-    <div class="cd reveal reveal-delay-3"><div class="cdl">执行</div><div class="cdb">主动cold pitch，推送角度：固态电池技术在消费级产品中实际表现——他频道受众关注但尚未深度覆盖的内容盲点。他决定自费购买独立测试。全程0品牌付费，0产品赠送。</div></div>
+    <div class="cd reveal reveal-delay-1"><div class="cdl" data-i18n="c2-l1">背景</div><div class="cdb" data-i18n="c2-d1">Yoshino Power 主打固态电池技术，进入欧美市场时品牌认知几乎为零，预算有限，无法依赖大规模付费投放。</div></div>
+    <div class="cd reveal reveal-delay-2"><div class="cdl" data-i18n="c2-l2">洞察</div><div class="cdb" data-i18n="c2-d2">Matt Ferrell，179万订阅的新能源科普博主。他的受众对技术细节有强烈好奇心——恰恰是储能品牌最难触达也最值得触达的早期采用者。关键判断：他不是「科技网红」，他是这个品类的意见领袖。</div></div>
+    <div class="cd reveal reveal-delay-3"><div class="cdl" data-i18n="c2-l3">执行</div><div class="cdb" data-i18n="c2-d3">主动cold pitch，推送角度：固态电池技术在消费级产品中实际表现——他频道受众关注但尚未深度覆盖的内容盲点。他决定自费购买独立测试。全程0品牌付费，0产品赠送。</div></div>
   </div>
   <a class="yt-card reveal" href="https://www.youtube.com/watch?v=9AZRPItAsfA" target="_blank" rel="noopener">
     <div class="yt-thumb"><div class="yt-play">▶</div></div>
@@ -248,52 +313,52 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
         <div class="yt-title">Yoshino B330 SST Review — Is This Solid-State Battery Power Station Worth It?<span class="yt-badge">YouTube</span></div>
         <div class="yt-meta">
           <div class="yt-avatar">MF</div>
-          <div><div class="yt-channel" style="font-weight:700;color:#111">Undecided with Matt Ferrell</div><div class="yt-channel">新能源科普 · 深度测评</div></div>
+          <div><div class="yt-channel" style="font-weight:700;color:#111">Undecided with Matt Ferrell</div><div class="yt-channel" data-i18n="c2-ytch">新能源科普 · 深度测评</div></div>
         </div>
       </div>
       <div class="yt-stats">
-        <div class="yt-stat">👥 179万 订阅</div>
-        <div class="yt-stat">👁 174万 观看</div>
-        <div class="yt-stat">💰 ¥0 品牌投入</div>
+        <div class="yt-stat" data-i18n="c2-yt1">👥 179万 订阅</div>
+        <div class="yt-stat" data-i18n="c2-yt2">👁 174万 观看</div>
+        <div class="yt-stat" data-i18n="c2-yt3">💰 ¥0 品牌投入</div>
       </div>
     </div>
   </a>
   <div class="g4">
-    <div class="sc ssg reveal reveal-delay-1"><div class="sc-lbl">4条视频累计播放</div><div class="sc-row"><span class="sc-num">400万+</span></div><canvas class="sc-chart" id="c1a"></canvas></div>
-    <div class="sc ssg reveal reveal-delay-2"><div class="sc-lbl">当月整体销量</div><div class="sc-row"><span class="sc-num">+400%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1b"></canvas></div>
-    <div class="sc ssg reveal reveal-delay-3"><div class="sc-lbl">消费者搜索热度</div><div class="sc-row"><span class="sc-num">×10</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1c"></canvas></div>
-    <div class="sc ssg reveal reveal-delay-4"><div class="sc-lbl">品牌投入成本</div><div class="sc-row"><span class="sc-num">¥0</span></div><canvas class="sc-chart" id="c1d"></canvas></div>
+    <div class="sc ssg reveal reveal-delay-1"><div class="sc-lbl" data-i18n="c2-s1">4条视频累计播放</div><div class="sc-row"><span class="sc-num" data-i18n="c2-s1v">400万+</span></div><canvas class="sc-chart" id="c1a"></canvas></div>
+    <div class="sc ssg reveal reveal-delay-2"><div class="sc-lbl" data-i18n="c2-s2">当月整体销量</div><div class="sc-row"><span class="sc-num">+400%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1b"></canvas></div>
+    <div class="sc ssg reveal reveal-delay-3"><div class="sc-lbl" data-i18n="c2-s3">消费者搜索热度</div><div class="sc-row"><span class="sc-num">×10</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1c"></canvas></div>
+    <div class="sc ssg reveal reveal-delay-4"><div class="sc-lbl" data-i18n="c2-s4">品牌投入成本</div><div class="sc-row"><span class="sc-num">¥0</span></div><canvas class="sc-chart" id="c1d"></canvas></div>
   </div>
   <div class="g2">
-    <div class="cd reveal reveal-delay-1"><div class="cdl">危机与判断</div><div class="cdb">视频发布后「固态电池」概念引发质疑——产品内部含液态成分，与大众普遍的认知有出入，被认为存在概念误导。<br><br>判断：评估认为应借势主动回应，追加垂直KOL和科技媒体，以第三方测评数据正面澄清，将危机转化为品牌信任背书。<br><br>结果：品牌最终选择冷处理策略，窗口期关闭。</div></div>
-    <div class="cd reveal reveal-delay-2"><div class="cdl">复盘与沉淀</div><div class="cdb">技术类产品的海外传播中，产品概念的准确性是营销的地基。当产品定义和市场沟通之间存在gap，营销能做的空间非常有限。<br><br>从那之后，我把「产品技术验证」列为所有新项目上市前的必要前置步骤。</div></div>
+    <div class="cd reveal reveal-delay-1"><div class="cdl" data-i18n="c2-l4">危机与判断</div><div class="cdb" data-i18n="c2-d4">视频发布后「固态电池」概念引发质疑——产品内部含液态成分，与大众普遍的认知有出入，被认为存在概念误导。<br><br>判断：评估认为应借势主动回应，追加垂直KOL和科技媒体，以第三方测评数据正面澄清，将危机转化为品牌信任背书。<br><br>结果：品牌最终选择冷处理策略，窗口期关闭。</div></div>
+    <div class="cd reveal reveal-delay-2"><div class="cdl" data-i18n="c2-l5">复盘与沉淀</div><div class="cdb" data-i18n="c2-d5">技术类产品的海外传播中，产品概念的准确性是营销的地基。当产品定义和市场沟通之间存在gap，营销能做的空间非常有限。<br><br>从那之后，我把「产品技术验证」列为所有新项目上市前的必要前置步骤。</div></div>
   </div>
 </div>
 
 <!-- CASE 03 -->
 <div class="div"></div>
-<div class="cl reveal">CASE 03 · 跨时区视觉素材体系 × YOSHINO POWER</div>
+<div class="cl reveal"><span data-i18n="cl3">CASE 03 · 跨时区视觉素材体系 × YOSHINO POWER</span></div>
 <div class="cb">
-  <div class="ct reveal"><div class="cn">03</div><div><div class="ctit">让方盒子产品拍出生活感，CTR达行业均值3.5倍</div><div class="chk">储能产品卖的不是电，是一种生活方式——用顶级创作者建立品牌视觉语言</div></div></div>
+  <div class="ct reveal"><div class="cn">03</div><div><div class="ctit" data-i18n="c3-title">让方盒子产品拍出生活感，CTR达行业均值3.5倍</div><div class="chk" data-i18n="c3-sub">储能产品卖的不是电，是一种生活方式——用顶级创作者建立品牌视觉语言</div></div></div>
   <div class="g3">
-    <div class="cd reveal reveal-delay-1"><div class="cdl">背景与判断</div><div class="cdb">储能品牌的视觉困境：产品是个方盒子，竞品清一色白底+参数标注。我的判断：视觉必须先让人心动，再让人相信参数。Yoshino Power 卖的不是电，是使用场景和生活方式。</div></div>
-    <div class="cd reveal reveal-delay-2"><div class="cdl">策略</div><div class="cdb">主动开发海外摄影师和导演资源，组建纽约、东京、深圳跨时区创意团队。选人标准：视觉语言是否与目标用户高度一致。合作：始祖鸟摄影师、巴塔哥尼亚摄影师、华纳导演。</div></div>
-    <div class="cd reveal reveal-delay-3"><div class="cdl">A/B测试结论</div><div class="cdb">建立素材A/B测试机制，测试三个变量：便携性卖点 vs 固态电池技术卖点 vs 美学卖点。<br><br>结论：「体积小/便携性」点击率显著领先，反向指导了后续所有KOL briefing方向。</div></div>
+    <div class="cd reveal reveal-delay-1"><div class="cdl" data-i18n="c3-l1">背景与判断</div><div class="cdb" data-i18n="c3-d1">储能品牌的视觉困境：产品是个方盒子，竞品清一色白底+参数标注。我的判断：视觉必须先让人心动，再让人相信参数。Yoshino Power 卖的不是电，是使用场景和生活方式。</div></div>
+    <div class="cd reveal reveal-delay-2"><div class="cdl" data-i18n="c3-l2">策略</div><div class="cdb" data-i18n="c3-d2">主动开发海外摄影师和导演资源，组建纽约、东京、深圳跨时区创意团队。选人标准：视觉语言是否与目标用户高度一致。合作：始祖鸟摄影师、巴塔哥尼亚摄影师、华纳导演。</div></div>
+    <div class="cd reveal reveal-delay-3"><div class="cdl" data-i18n="c3-l3">A/B测试结论</div><div class="cdb" data-i18n="c3-d3">建立素材A/B测试机制，测试三个变量：便携性卖点 vs 固态电池技术卖点 vs 美学卖点。<br><br>结论：「体积小/便携性」点击率显著领先，反向指导了后续所有KOL briefing方向。</div></div>
   </div>
   <div class="photo-row reveal" id="row-c4"></div>
   <div class="ig-link-row reveal">
     <a class="ig-link" href="https://www.instagram.com/p/DA_xoV5POKT/" target="_blank" rel="noopener">
-      <div class="ig-logo"></div><div class="ig-link-text">@yoshinopower · 户外场景拍摄</div><div class="ig-link-arrow">↗</div>
+      <div class="ig-logo"></div><div class="ig-link-text"><span data-i18n="c3-ig1">@yoshinopower · 户外场景拍摄</span></div><div class="ig-link-arrow">↗</div>
     </a>
     <a class="ig-link" href="https://www.instagram.com/p/C-Viu4iyaO3/" target="_blank" rel="noopener">
-      <div class="ig-logo"></div><div class="ig-link-text">@yoshinopower · 生活化场景</div><div class="ig-link-arrow">↗</div>
+      <div class="ig-logo"></div><div class="ig-link-text"><span data-i18n="c3-ig2">@yoshinopower · 生活化场景</span></div><div class="ig-link-arrow">↗</div>
     </a>
   </div>
   <div class="g4">
-    <div class="sc ssp reveal reveal-delay-1"><div class="sc-lbl">战略级视觉拍摄</div><div class="sc-row"><span class="sc-num">12组</span></div><canvas class="sc-chart" id="c4a"></canvas></div>
-    <div class="sc ssp reveal reveal-delay-2"><div class="sc-lbl">广告CTR / 行业均值</div><div class="sc-row"><span class="sc-num">3.5×</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c4b"></canvas></div>
-    <div class="sc ssp reveal reveal-delay-3"><div class="sc-lbl">KOL内容转化率</div><div class="sc-row"><span class="sc-num">+35%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c4c"></canvas></div>
-    <div class="sc ssp reveal reveal-delay-4"><div class="sc-lbl">年度GMV同比</div><div class="sc-row"><span class="sc-num">+217%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c4d"></canvas></div>
+    <div class="sc ssp reveal reveal-delay-1"><div class="sc-lbl" data-i18n="c3-s1">战略级视觉拍摄</div><div class="sc-row"><span class="sc-num" data-i18n="c3-s1v">12组</span></div><canvas class="sc-chart" id="c4a"></canvas></div>
+    <div class="sc ssp reveal reveal-delay-2"><div class="sc-lbl" data-i18n="c3-s2">广告CTR / 行业均值</div><div class="sc-row"><span class="sc-num">3.5×</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c4b"></canvas></div>
+    <div class="sc ssp reveal reveal-delay-3"><div class="sc-lbl" data-i18n="c3-s3">KOL内容转化率</div><div class="sc-row"><span class="sc-num">+35%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c4c"></canvas></div>
+    <div class="sc ssp reveal reveal-delay-4"><div class="sc-lbl" data-i18n="c3-s4">年度GMV同比</div><div class="sc-row"><span class="sc-num">+217%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c4d"></canvas></div>
   </div>
 </div>
 
@@ -301,31 +366,31 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 <div class="div"></div>
 <div class="cl reveal">CASE 04 · EMAKE3D GALAXY 1 × KICKSTARTER</div>
 <div class="cb">
-  <div class="ct reveal"><div class="cn">04</div><div><div class="ctit">全链路主导，超额完成目标5595%</div><div class="chk">好的数据是加注的信号，不是收手的理由——关键决策撑起$111万众筹</div></div></div>
+  <div class="ct reveal"><div class="cn">04</div><div><div class="ctit" data-i18n="c4-title">全链路主导，超额完成目标5595%</div><div class="chk" data-i18n="c4-sub">好的数据是加注的信号，不是收手的理由——关键决策撑起$111万众筹</div></div></div>
   <div class="g3">
-    <div class="cd reveal reveal-delay-1"><div class="cdl">背景与挑战</div><div class="cdb">eMake3D Galaxy 1，17英寸大尺寸SLA树脂3D打印机，面向手办爱好者。Kickstarter北美市场，品类参数高度同质化。挑战：如何让普通手办爱好者一眼看懂产品价值？</div></div>
-    <div class="cd reveal reveal-delay-2"><div class="cdl">定位策略</div><div class="cdb">技术参数不是这个用户群的语言，场景才是。放弃参数战，锚定清晰身份——「世界上最大的消费级3D打印机」。一句话说清差异化，让用户立刻想象到自己能做什么。</div></div>
-    <div class="cd reveal reveal-delay-3"><div class="cdl">关键决策</div><div class="cdb">预热期Facebook广告数据强劲，我主动提出追加预算，引入Kickstarter生态最专业的广告团队Jellop。同时持续pitch垂直顶流KOL，跟对方跟进项目情况。同时部署第三方邮箱池投放，覆盖Kickstarter存量用户。三者咬合形成完整转化漏斗。</div></div>
+    <div class="cd reveal reveal-delay-1"><div class="cdl" data-i18n="c4-l1">背景与挑战</div><div class="cdb" data-i18n="c4-d1">eMake3D Galaxy 1，17英寸大尺寸SLA树脂3D打印机，面向手办爱好者。Kickstarter北美市场，品类参数高度同质化。挑战：如何让普通手办爱好者一眼看懂产品价值？</div></div>
+    <div class="cd reveal reveal-delay-2"><div class="cdl" data-i18n="c4-l2">定位策略</div><div class="cdb" data-i18n="c4-d2">技术参数不是这个用户群的语言，场景才是。放弃参数战，锚定清晰身份——「世界上最大的消费级3D打印机」。一句话说清差异化，让用户立刻想象到自己能做什么。</div></div>
+    <div class="cd reveal reveal-delay-3"><div class="cdl" data-i18n="c4-l3">关键决策</div><div class="cdb" data-i18n="c4-d3">预热期Facebook广告数据强劲，我主动提出追加预算，引入Kickstarter生态最专业的广告团队Jellop。同时持续pitch垂直顶流KOL，跟对方跟进项目情况。同时部署第三方邮箱池投放，覆盖Kickstarter存量用户。三者咬合形成完整转化漏斗。</div></div>
   </div>
   <a class="ks-card reveal" href="https://www.kickstarter.com/projects/emake3d/galaxy-1-the-17-large-scale-sla-3d-printer/description" target="_blank" rel="noopener">
     <div class="ks-left">
-      <div class="ks-logo">🚀 KICKSTARTER · 已成功</div>
+      <div class="ks-logo"><span data-i18n="c4-kslogo">🚀 KICKSTARTER · 已成功</span></div>
       <div class="ks-title">eMake3D Galaxy 1 — The 17" Large-Scale SLA 3D Printer</div>
       <div class="ks-stats">
-        <div><div class="ks-stat-n">$1,110,000</div><div class="ks-stat-l">最终众筹金额</div></div>
-        <div><div class="ks-stat-n">5,595%</div><div class="ks-stat-l">超额完成目标</div></div>
-        <div><div class="ks-stat-n">5.2×</div><div class="ks-stat-l">广告ROI</div></div>
+        <div><div class="ks-stat-n">$1,119,092</div><div class="ks-stat-l" data-i18n="c4-ksl1">最终众筹金额</div></div>
+        <div><div class="ks-stat-n">5,595%</div><div class="ks-stat-l" data-i18n="c4-ksl2">超额完成目标</div></div>
+        <div><div class="ks-stat-n">5.2×</div><div class="ks-stat-l" data-i18n="c4-ksl3">广告ROI</div></div>
       </div>
     </div>
-    <div class="ks-right">↗ 查看项目页面</div>
+    <div class="ks-right"><span data-i18n="c4-ksview">↗ 查看项目页面</span></div>
   </a>
   <div class="g4">
-    <div class="sc ssb reveal reveal-delay-1"><div class="sc-lbl">最终众筹金额</div><div class="sc-row"><span class="sc-num">$1.11M</span><span class="sc-badge">↑5595%</span></div><canvas class="sc-chart" id="c2a"></canvas></div>
-    <div class="sc ssb reveal reveal-delay-2"><div class="sc-lbl">广告投入产出比</div><div class="sc-row"><span class="sc-num">5.2×</span><span class="sc-badge">ROI</span></div><canvas class="sc-chart" id="c2b"></canvas></div>
-    <div class="sc ssb reveal reveal-delay-3"><div class="sc-lbl">项目在线周期</div><div class="sc-row"><span class="sc-num">45天</span></div><canvas class="sc-chart" id="c2c"></canvas></div>
-    <div class="sc ssb reveal reveal-delay-4"><div class="sc-lbl">项目成功率</div><div class="sc-row"><span class="sc-num">100%</span></div><canvas class="sc-chart" id="c2d"></canvas></div>
+    <div class="sc ssb reveal reveal-delay-1"><div class="sc-lbl" data-i18n="c4-s1">最终众筹金额</div><div class="sc-row"><span class="sc-num">$1.11M</span><span class="sc-badge">↑5595%</span></div><canvas class="sc-chart" id="c2a"></canvas></div>
+    <div class="sc ssb reveal reveal-delay-2"><div class="sc-lbl" data-i18n="c4-s2">广告投入产出比</div><div class="sc-row"><span class="sc-num">5.2×</span><span class="sc-badge">ROI</span></div><canvas class="sc-chart" id="c2b"></canvas></div>
+    <div class="sc ssb reveal reveal-delay-3"><div class="sc-lbl" data-i18n="c4-s3">项目在线周期</div><div class="sc-row"><span class="sc-num" data-i18n="c4-s3v">45天</span></div><canvas class="sc-chart" id="c2c"></canvas></div>
+    <div class="sc ssb reveal reveal-delay-4"><div class="sc-lbl" data-i18n="c4-s4">项目成功率</div><div class="sc-row"><span class="sc-num">100%</span></div><canvas class="sc-chart" id="c2d"></canvas></div>
   </div>
-  <div class="qc reveal"><div class="qt">"好的数据是加注的信号，不是收手的理由。预热期数据强劲时，我选择主动推动追加预算——这个决定直接决定了最终结果的量级。"</div></div>
+  <div class="qc reveal"><div class="qt" data-i18n="c4-quote">"好的数据是加注的信号，不是收手的理由。预热期数据强劲时，我选择主动推动追加预算——这个决定直接决定了最终结果的量级。"</div></div>
 </div>
 
 <!-- FOOTER -->
@@ -337,7 +402,7 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
       </div>
       <div class="footer-right">
         <div class="footer-contact-col">
-          <div class="footer-contact-label">联系方式</div>
+          <div class="footer-contact-label" data-i18n="footer-contact">联系方式</div>
           <a class="footer-contact-email" href="mailto:scarlett.lingyi.yang@gmail.com">scarlett.lingyi.yang@gmail.com</a>
           <a class="footer-contact-phone" href="tel:+8619383221945">+86 193-8322-1945</a>
         </div>
@@ -414,5 +479,137 @@ window.addEventListener('load',()=>{
   initReveal();
 });
 </script>
+
+<script>
+const i18n = {
+  zh: {
+    'hd': '海外品牌营销 · KOL策略 · 品牌冷启动<br><br>过去四年，主导智能硬件品牌在欧美日市场从0到1的上市。擅长以人群策略为起点，整合KOL、PR与视觉内容，打通从曝光到转化的完整链路。',
+    'hs-label':'关键指标','hsl-gmv':'年GMV增长','hsl-crowd':'众筹累计','hsl-kol':'KOL匹配率','hsn-crowd':'$324万',
+    'pill1':'高端显示器品牌0到1冷启动，预计8月上线','pill2':'0预算撬动179万粉博主自费测评，当月销量+400%',
+    'pill3':'跨时区视觉体系，广告CTR达行业均值3.5倍','pill4':'Kickstarter单项目众筹$111万，超额5595%',
+    'tag1a':'#策略','tag1b':'#显示器','tag1c':'#进行中','tag2c':'#危机处理',
+    'tag3a':'#视觉','tag3b':'#A/B测试','tag4a':'#众筹','tag4b':'#全链路','tag4c':'#3D打印',
+    'cl1':'CASE 01 · MASTERBEAST × 超火游戏',
+    'c1-title':'高端显示器品牌，0到1冷启动 <span class="ba">ACTIVE</span>',
+    'c1-sub':'不打参数战，打审美和身份认同——在红海品类里找到差异化的人群切口',
+    'c1-l1':'核心洞察','c1-d1':'显示器是红海品类，大品牌靠参数和预算碾压。我的判断：锚定三类高价值细分人群——摄影/设计工作者（色准需求）、高端游戏玩家（颜值+画质）、高审美年轻职场人（桌面美学）。共同特征：在社媒上有强烈的自发分享意愿，是天然UGC来源。',
+    'c1-l2':'KOL策略','c1-d2':'不找「科技博主」，找「品味标签」。合作方向：Teenage Engineering（克制美感背书）、David Yuan（创作者社群核心锚点）。触达600+创作者，筛选57位，匹配率96%。',
+    'c1-l3':'当前进度',
+    'c1-d3':'<div class="chlist"><div class="chi"><div class="dot don"></div>网站 &amp; Instagram搭建完成</div><div class="chi"><div class="dot don"></div>50张核心视觉素材就位</div><div class="chi"><div class="dot don"></div>57位KOL合作意向确认</div><div class="chi"><div class="dot dof"></div><span style="color:#aaa">Reddit/Discord · 规划中</span></div></div>',
+    'c1-prog1':'网站 & Instagram搭建完成','c1-prog2':'50张核心视觉素材就位','c1-prog3':'57位KOL合作意向确认',
+    'c1-s1l':'冷开发触达创作者','c1-s1n':'创作者触达规模',
+    'c1-s2l':'确认合作意向','c1-s2v':'57位','c1-s2n':'命中率 9.5%',
+    'c1-s3l':'人群匹配率','c1-s3n':'高于行业均值',
+    'kol1-sub':'253万 订阅','kol-tag-tech':'科技开箱 · 已确认合作',
+    'kol2-sub':'2540万 订阅','kol-tag-tech2':'科技开箱 · 已确认合作',
+    'kol3-sub':'45.7万 订阅','kol3-tag':'极简美学 · 桌面设计 · 已确认合作',
+    'kol4-sub':'26.5万 订阅','kol4-tag':'日系桌面 · 生产力美学 · 已确认合作',
+    'tl-strong':'预计上线节点：Aug 2025','tl-text':' · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV',
+    'c2-title':'0预算，179万粉博主自费测评',
+    'c2-sub':'一次精准的pitch，胜过百万投放预算——当月销量+400%，搜索热度×10',
+    'c2-l1':'背景','c2-d1':'Yoshino Power 主打固态电池技术，进入欧美市场时品牌认知几乎为零，预算有限，无法依赖大规模付费投放。',
+    'c2-l2':'洞察','c2-d2':'Matt Ferrell，179万订阅的新能源科普博主。他的受众对技术细节有强烈好奇心——恰恰是储能品牌最难触达也最值得触达的早期采用者。关键判断：他不是「科技网红」，他是这个品类的意见领袖。',
+    'c2-l3':'执行','c2-d3':'主动cold pitch，推送角度：固态电池技术在消费级产品中实际表现——他频道受众关注但尚未深度覆盖的内容盲点。他决定自费购买独立测试。全程0品牌付费，0产品赠送。',
+    'c2-ytch':'新能源科普 · 深度测评',
+    'c2-yt1':'👥 179万 订阅','c2-yt2':'👁 174万 观看','c2-yt3':'💰 ¥0 品牌投入',
+    'c2-s1':'4条视频累计播放','c2-s1v':'400万+','c2-s2':'当月整体销量','c2-s3':'消费者搜索热度','c2-s4':'品牌投入成本',
+    'c2-l4':'危机与判断','c2-d4':'视频发布后「固态电池」概念引发质疑——产品内部含液态成分，与大众普遍的认知有出入，被认为存在概念误导。<br><br>判断：评估认为应借势主动回应，追加垂直KOL和科技媒体，以第三方测评数据正面澄清，将危机转化为品牌信任背书。<br><br>结果：品牌最终选择冷处理策略，窗口期关闭。',
+    'c2-l5':'复盘与沉淀','c2-d5':'技术类产品的海外传播中，产品概念的准确性是营销的地基。当产品定义和市场沟通之间存在gap，营销能做的空间非常有限。<br><br>从那之后，我把「产品技术验证」列为所有新项目上市前的必要前置步骤。',
+    'cl3':'CASE 03 · 跨时区视觉素材体系 × YOSHINO POWER',
+    'c3-title':'让方盒子产品拍出生活感，CTR达行业均值3.5倍',
+    'c3-sub':'储能产品卖的不是电，是一种生活方式——用顶级创作者建立品牌视觉语言',
+    'c3-l1':'背景与判断','c3-d1':'储能品牌的视觉困境：产品是个方盒子，竞品清一色白底+参数标注。我的判断：视觉必须先让人心动，再让人相信参数。Yoshino Power 卖的不是电，是使用场景和生活方式。',
+    'c3-l2':'策略','c3-d2':'主动开发海外摄影师和导演资源，组建纽约、东京、深圳跨时区创意团队。选人标准：视觉语言是否与目标用户高度一致。合作：始祖鸟摄影师、巴塔哥尼亚摄影师、华纳导演。',
+    'c3-l3':'A/B测试结论','c3-d3':'建立素材A/B测试机制，测试三个变量：便携性卖点 vs 固态电池技术卖点 vs 美学卖点。<br><br>结论：「体积小/便携性」点击率显著领先，反向指导了后续所有KOL briefing方向。',
+    'c3-ig1':'@yoshinopower · 户外场景拍摄','c3-ig2':'@yoshinopower · 生活化场景',
+    'c3-s1':'战略级视觉拍摄','c3-s1v':'12组','c3-s2':'广告CTR / 行业均值','c3-s3':'KOL内容转化率','c3-s4':'年度GMV同比',
+    'c4-title':'全链路主导，超额完成目标5595%',
+    'c4-sub':'好的数据是加注的信号，不是收手的理由——关键决策撑起$111万众筹',
+    'c4-l1':'背景与挑战','c4-d1':'eMake3D Galaxy 1，17英寸大尺寸SLA树脂3D打印机，面向手办爱好者。Kickstarter北美市场，品类参数高度同质化。挑战：如何让普通手办爱好者一眼看懂产品价值？',
+    'c4-l2':'定位策略','c4-d2':'技术参数不是这个用户群的语言，场景才是。放弃参数战，锚定清晰身份——「世界上最大的消费级3D打印机」。一句话说清差异化，让用户立刻想象到自己能做什么。',
+    'c4-l3':'关键决策','c4-d3':'预热期Facebook广告数据强劲，我主动提出追加预算，引入Kickstarter生态最专业的广告团队Jellop。同时持续pitch垂直顶流KOL，跟对方跟进项目情况。同时部署第三方邮箱池投放，覆盖Kickstarter存量用户。三者咬合形成完整转化漏斗。',
+    'c4-kslogo':'🚀 KICKSTARTER · 已成功',
+    'c4-ksl1':'最终众筹金额','c4-ksl2':'超额完成目标','c4-ksl3':'广告ROI',
+    'c4-ksview':'↗ 查看项目页面',
+    'c4-s1':'最终众筹金额','c4-s2':'广告投入产出比','c4-s3':'项目在线周期','c4-s3v':'45天','c4-s4':'项目成功率',
+    'c4-quote':'"好的数据是加注的信号，不是收手的理由。预热期数据强劲时，我选择主动推动追加预算——这个决定直接决定了最终结果的量级。"',
+    'footer-contact':'联系方式',
+  },
+  en: {
+    'hd': `Global Brand Marketing · KOL Strategy · Brand Launch<br><br>Over the past four years, I've led smart hardware brands from zero to launch across the US, Europe, and Japan. I start with audience strategy, then integrate KOL partnerships, PR, and visual content to build a full-funnel path from awareness to conversion.`,
+    'hs-label':'KEY METRICS','hsl-gmv':'Annual GMV Growth','hsl-crowd':'Total Crowdfunded','hsl-kol':'KOL Match Rate','hsn-crowd':'$3.24M',
+    'pill1':'Cold-launching a premium monitor brand from scratch — live August 2025',
+    'pill2':'Zero budget, 1.79M-subscriber creator self-funded a review — sales up 400% that month',
+    'pill3':'Cross-timezone visual system — ad CTR at 3.5× industry average',
+    'pill4':'Single Kickstarter campaign raised $1.11M — 5,595% funded',
+    'tag1a':'#Strategy','tag1b':'#Monitor','tag1c':'#InProgress','tag2c':'#CrisisManagement',
+    'tag3a':'#Visual','tag3b':'#ABTesting','tag4a':'#Crowdfunding','tag4b':'#FullFunnel','tag4c':'#3DPrinting',
+    'cl1':'CASE 01 · MASTERBEAST × CHAOHUO GAMES',
+    'c1-title':'Premium Monitor Brand, Zero-to-Launch <span class="ba">ACTIVE</span>',
+    'c1-sub':'Skip the spec war. Win on taste and identity — carving out differentiated audience segments in a saturated category',
+    'c1-l1':'CORE INSIGHT','c1-d1':'Monitors are a red-ocean category where big brands dominate on specs and budget. My read: anchor to three high-value niches — photo/design professionals (color accuracy), premium gamers (aesthetics + image quality), and taste-forward young professionals (desk setup culture). What they share: a strong organic impulse to post — natural UGC engines.',
+    'c1-l2':'KOL STRATEGY','c1-d2':'Don\'t look for "tech reviewers." Look for taste markers. Target partners: Teenage Engineering (minimal aesthetic credibility), David Yuan (core anchor in the creator community). Reached 600+ creators, shortlisted 57, 96% audience match rate.',
+    'c1-l3':'CURRENT STATUS',
+    'c1-d3':'<div class="chlist"><div class="chi"><div class="dot don"></div>Website &amp; Instagram live</div><div class="chi"><div class="dot don"></div>50 hero visual assets finalized</div><div class="chi"><div class="dot don"></div>57 KOL partnerships confirmed</div><div class="chi"><div class="dot dof"></div><span style="color:#aaa">Reddit/Discord · In planning</span></div></div>',
+    'c1-prog1':'Website & Instagram live','c1-prog2':'50 hero visual assets finalized','c1-prog3':'57 KOL partnerships confirmed',
+    'c1-s1l':'Creators cold-outreached','c1-s1n':'Total outreach volume',
+    'c1-s2l':'Confirmed partnerships','c1-s2v':'57','c1-s2n':'9.5% acceptance rate',
+    'c1-s3l':'Audience match rate','c1-s3n':'Above industry benchmark',
+    'kol1-sub':'2.53M subscribers','kol-tag-tech':'Tech unboxing · Partnership confirmed',
+    'kol2-sub':'25.4M subscribers','kol-tag-tech2':'Tech unboxing · Partnership confirmed',
+    'kol3-sub':'457K subscribers','kol3-tag':'Minimal aesthetics · Desk design · Partnership confirmed',
+    'kol4-sub':'265K subscribers','kol4-tag':'Japanese desk setup · Productivity aesthetics · Partnership confirmed',
+    'tl-strong':'Projected launch: Aug 2025','tl-text':' · Website, KOL content, and Reddit/Discord communities launching simultaneously — targeting 10K+ organic UVs in month one',
+    'c2-title':'$0 Budget. 1.79M-Subscriber Creator Self-Funded the Review.',
+    'c2-sub':'One well-targeted pitch outperformed a seven-figure ad buy — sales up 400%, search volume up 10×',
+    'c2-l1':'BACKGROUND','c2-d1':'Yoshino Power built its brand around solid-state battery technology, but had near-zero name recognition in Western markets and a limited budget — paid media at scale wasn\'t an option.',
+    'c2-l2':'INSIGHT','c2-d2':'Matt Ferrell — 1.79M subscribers in the clean energy space. His audience has a genuine appetite for technical depth — exactly the early adopters a battery brand struggles most to reach, and values most. Key call: he\'s not a "tech influencer." He\'s the category\'s opinion leader.',
+    'c2-l3':'EXECUTION','c2-d3':'Initiated a cold pitch framed around a specific content gap: real-world solid-state battery performance in consumer products. He chose to purchase and test the unit independently. Zero brand payment. Zero product gifting.',
+    'c2-ytch':'Clean Energy · In-Depth Reviews',
+    'c2-yt1':'👥 1.79M subscribers','c2-yt2':'👁 1.74M views','c2-yt3':'💰 $0 brand spend',
+    'c2-s1':'Total views across 4 videos','c2-s1v':'4M+','c2-s2':'Overall sales that month','c2-s3':'Consumer search volume','c2-s4':'Brand spend',
+    'c2-l4':'CRISIS & JUDGMENT','c2-d4':'After the video dropped, the "solid-state battery" claim drew scrutiny — the product contains liquid electrolyte components, which conflicted with popular understanding and raised concerns about misleading marketing.<br><br>My read: lean into the controversy. Bring in vertical KOLs and tech press, use third-party test data to proactively clarify, and convert the backlash into a credibility moment.<br><br>Outcome: the brand chose to stay quiet. The window closed.',
+    'c2-l5':'RETROSPECTIVE','c2-d5':'In global marketing for technical products, accuracy of the product concept is the foundation everything else is built on. When there\'s a gap between what the product actually is and how it\'s being communicated, marketing\'s room to maneuver is extremely limited.<br><br>Since then, I\'ve made "technical claim verification" a mandatory pre-launch step on every new project.',
+    'cl3':'CASE 03 · CROSS-TIMEZONE VISUAL SYSTEM × YOSHINO POWER',
+    'c3-title':'Making a Box Aspirational — Ad CTR at 3.5× Industry Average',
+    'c3-sub':'A power station doesn\'t sell electricity. It sells a way of living — build the visual language through world-class creators',
+    'c3-l1':'BACKGROUND & FRAMING','c3-d1':'The visual problem with power station brands: the product is a box. Competitors all run white-background product shots with spec callouts. My read: visuals need to make people feel something before they\'ll believe the numbers. Yoshino Power isn\'t selling electricity — it\'s selling a way of being outdoors.',
+    'c3-l2':'STRATEGY','c3-d2':'Proactively sourced international photographers and directors, building a cross-timezone creative team across New York, Tokyo, and Shenzhen. Selection criteria: visual language alignment with the target audience. Partners included Arc\'teryx photographers, Patagonia photographers, and a Warner Bros. director.',
+    'c3-l3':'A/B TEST FINDINGS','c3-d3':'Built a creative A/B testing framework across three messaging angles: portability vs. solid-state battery tech vs. lifestyle aesthetics.<br><br>Finding: "compact/portable" drove significantly higher CTR — and reversed the direction of all subsequent KOL briefings.',
+    'c3-ig1':'@yoshinopower · Outdoor lifestyle shoot','c3-ig2':'@yoshinopower · Everyday lifestyle shoot',
+    'c3-s1':'Strategic shoots produced','c3-s1v':'12','c3-s2':'Ad CTR vs. industry avg','c3-s3':'KOL content CVR','c3-s4':'Annual GMV YoY',
+    'c4-title':'Full-Funnel Ownership — 5,595% Funded',
+    'c4-sub':'Strong data is a signal to push harder, not pull back — the right calls at the right time built a $1.11M campaign',
+    'c4-l1':'BACKGROUND & CHALLENGE','c4-d1':'eMake3D Galaxy 1 — a 17-inch large-format SLA resin 3D printer for figure collectors. North American Kickstarter market, where category specs are nearly indistinguishable. The challenge: how do you make an everyday hobbyist immediately understand why this product matters?',
+    'c4-l2':'POSITIONING','c4-d2':'Technical specs aren\'t the language of this audience — use cases are. Drop the spec war. Anchor to a single, clear identity: "The world\'s largest consumer 3D printer." One line that communicates differentiation and instantly lets people picture what they could make.',
+    'c4-l3':'KEY DECISIONS','c4-d3':'Pre-launch Facebook ad data looked strong. I pushed to increase the budget and brought in Jellop — the most specialized ad team in the Kickstarter ecosystem. Simultaneously continued pitching top-tier vertical KOLs and running project updates. Layered in third-party email list targeting to reach existing Kickstarter audiences. All three locked together into a complete conversion funnel.',
+    'c4-kslogo':'🚀 KICKSTARTER · SUCCESSFULLY FUNDED',
+    'c4-ksl1':'Total amount raised','c4-ksl2':'Funded above goal','c4-ksl3':'Ad ROI',
+    'c4-ksview':'↗ View campaign',
+    'c4-s1':'Total amount raised','c4-s2':'Ad ROI','c4-s3':'Campaign duration','c4-s3v':'45 days','c4-s4':'Campaign success rate',
+    'c4-quote':'"Strong data is a signal to push harder, not pull back. When pre-launch numbers looked good, I made the call to increase budget — that decision directly determined the scale of what we achieved."',
+    'footer-contact':'Contact',
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-opt').forEach(el => {
+    el.classList.toggle('active', el.dataset.lang === lang);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang] && i18n[lang][key] !== undefined) {
+      el.innerHTML = i18n[lang][key];
+    }
+  });
+  localStorage.setItem('lang', lang);
+}
+
+(function(){
+  const saved = localStorage.getItem('lang') || 'zh';
+  if (saved !== 'zh') setLang(saved);
+})();
+</script>
+
 </body>
 </html>
