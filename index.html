@@ -173,6 +173,28 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 .lang-btn{display:inline-flex;background:#111;border-radius:20px;padding:3px;gap:2px;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
 .lang-opt{font-size:10px;font-weight:700;letter-spacing:0.08em;color:#888;padding:4px 10px;border-radius:16px;cursor:pointer;transition:background 0.18s,color 0.18s;user-select:none}
 .lang-opt.active{background:#fff;color:#111}
+
+/* Instagram creator card and media wall */
+.kol-instagram:hover .kol-yt-play{background:#E1306C}
+.kol-instagram .kol-yt-sub{color:#C72A60;font-size:10px;line-height:1.35}
+.media-wall{margin-top:3rem;margin-bottom:1rem}
+.media-heading{font-size:20px;font-weight:800;letter-spacing:-0.5px;margin-bottom:0.45rem}
+.media-caption{font-size:12px;line-height:1.7;color:#777;margin-bottom:1.25rem}
+ .media-marquee{overflow:hidden;position:relative;padding:0.3rem 0;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
+.media-track{display:flex;width:max-content;animation:media-scroll 42s linear infinite;will-change:transform}
+.media-track.reverse{animation-direction:reverse;animation-duration:48s;margin-top:0.65rem}
+.media-group{display:flex;align-items:center;gap:0.65rem;list-style:none;padding:0 0.65rem 0 0;margin:0;flex-shrink:0}
+.media-name{width:190px;min-height:86px;padding:1rem;display:flex;align-items:center;justify-content:center;text-align:center;background:#F8F7F5;border:0.5px solid #d8d5d1;border-radius:13px;font-size:20px;font-weight:750;letter-spacing:-0.6px;line-height:1.2;transition:background .25s,color .25s,transform .25s}
+.media-name:nth-child(3n+2){font-family:Georgia,serif;font-style:italic}
+.media-name:nth-child(3n){text-transform:uppercase;font-size:17px;letter-spacing:1px}
+.media-name:hover{background:#D4B8D8;color:#280838;transform:translateY(-2px)}
+.media-marquee:hover .media-track,.media-marquee:focus-within .media-track,.media-marquee.is-paused .media-track{animation-play-state:paused}
+.media-controls{display:flex;justify-content:flex-end;margin-bottom:0.5rem}
+.media-toggle{border:1px solid #ccc;border-radius:20px;background:transparent;color:#666;padding:6px 12px;font:inherit;font-size:11px;cursor:pointer}
+.media-toggle:hover{background:#fff}.media-toggle:focus-visible{outline:2px solid #555;outline-offset:3px}
+@keyframes media-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:768px){.media-name{width:155px;min-height:76px;font-size:17px}.media-name:nth-child(3n){font-size:14px}}
+@media(prefers-reduced-motion:reduce){.media-track,.media-track.reverse{animation:none;transform:none;width:100%}.media-marquee{mask-image:none;overflow:visible}.media-group{flex-wrap:wrap;width:100%;gap:0.55rem;padding:0}.media-name{flex:1 1 140px;width:auto}.media-group[aria-hidden="true"]{display:none}.media-controls{display:none}}
 </style>
 </head>
 <body>
@@ -197,8 +219,8 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
     </div>
   </div>
   <div class="hr">
-    <div class="pill pa reveal reveal-delay-1"><div class="ps"><span class="pd"></span>ACTIVE</div><div class="pt" data-i18n="pill1">高端显示器品牌0到1冷启动，预计8月上线</div><div class="ptags"><span class="tg tga" data-i18n="tag1a">#策略</span><span class="tg tga" data-i18n="tag1b">#显示器</span><span class="tg tga" data-i18n="tag1c">#进行中</span><span class="tg tga">#MasterBeast</span></div></div>
-    <div class="pill pg reveal reveal-delay-2"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill2">0预算撬动179万粉博主自费测评，当月销量+400%</div><div class="ptags"><span class="tg tgg">#KOL</span><span class="tg tgg">#Yoshino Power</span><span class="tg tgg" data-i18n="tag2c">#危机处理</span></div></div>
+    <div class="pill pa reveal reveal-delay-1"><div class="ps"><span class="pd"></span>ACTIVE</div><div class="pt" data-i18n="pill1">高端显示器品牌0到1冷启动，预计10月上线</div><div class="ptags"><span class="tg tga" data-i18n="tag1a">#策略</span><span class="tg tga" data-i18n="tag1b">#显示器</span><span class="tg tga" data-i18n="tag1c">#进行中</span><span class="tg tga">#MasterBeast</span></div></div>
+    <div class="pill pg reveal reveal-delay-2"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill2">0预算撬动179万粉博主自费测评，当月销量+389%</div><div class="ptags"><span class="tg tgg">#KOL</span><span class="tg tgg">#Yoshino Power</span><span class="tg tgg" data-i18n="tag2c">#危机处理</span></div></div>
     <div class="pill pp reveal reveal-delay-3"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill3">跨时区视觉体系，广告CTR达行业均值3.5倍</div><div class="ptags"><span class="tg tgp" data-i18n="tag3a">#视觉</span><span class="tg tgp" data-i18n="tag3b">#A/B测试</span><span class="tg tgp">#Yoshino Power</span></div></div>
     <div class="pill pb reveal reveal-delay-4"><div class="ps"><span class="pd"></span>SHIPPED</div><div class="pt" data-i18n="pill4">Kickstarter单项目众筹$111万，超额5595%</div><div class="ptags"><span class="tg tgb" data-i18n="tag4a">#众筹</span><span class="tg tgb" data-i18n="tag4b">#全链路</span><span class="tg tgb" data-i18n="tag4c">#3D打印</span></div></div>
   </div>
@@ -251,12 +273,12 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 
   <!-- 已确认合作 KOL -->
   <div class="g4 reveal" style="margin-bottom:0.55rem">
-    <a class="kol-yt-card reveal-delay-1" href="https://www.youtube.com/shortcircuit" target="_blank" rel="noopener">
+    <a class="kol-yt-card kol-instagram reveal-delay-1" href="https://www.instagram.com/oliursvisuals/reel/DdtUlCJsqy0/" target="_blank" rel="noopener">
       <div class="kol-yt-left"><div class="kol-yt-play">▶</div></div>
       <div class="kol-yt-info">
-        <div class="kol-yt-name">ShortCircuit</div>
-        <div class="kol-yt-sub" data-i18n="kol1-sub">253万 订阅</div>
-        <div class="kol-yt-tag" data-i18n="kol-tag-tech">科技开箱 · 已确认合作</div>
+        <div class="kol-yt-name">Oliur’s Visuals</div>
+        <div class="kol-yt-sub" data-i18n="kol3-sub">全网粉丝 87.3万</div>
+        <div class="kol-yt-tag" data-i18n="kol3-tag">极简美学 · 桌面设计 · 已确认合作</div>
       </div>
       <div class="kol-yt-arrow">↗</div>
     </a>
@@ -269,12 +291,12 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
       </div>
       <div class="kol-yt-arrow">↗</div>
     </a>
-    <a class="kol-yt-card reveal-delay-3" href="https://www.youtube.com/@Oliur" target="_blank" rel="noopener">
+    <a class="kol-yt-card reveal-delay-3" href="https://www.youtube.com/shortcircuit" target="_blank" rel="noopener">
       <div class="kol-yt-left"><div class="kol-yt-play">▶</div></div>
       <div class="kol-yt-info">
-        <div class="kol-yt-name">Oliur / UltraLinx</div>
-        <div class="kol-yt-sub" data-i18n="kol3-sub">45.7万 订阅</div>
-        <div class="kol-yt-tag" data-i18n="kol3-tag">极简美学 · 桌面设计 · 已确认合作</div>
+        <div class="kol-yt-name">ShortCircuit</div>
+        <div class="kol-yt-sub" data-i18n="kol1-sub">253万 订阅</div>
+        <div class="kol-yt-tag" data-i18n="kol-tag-tech">科技开箱 · 已确认合作</div>
       </div>
       <div class="kol-yt-arrow">↗</div>
     </a>
@@ -292,7 +314,7 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
   <!-- 上线节点 — 小字说明条 -->
   <div class="timeline-note reveal">
     <div class="timeline-dot"></div>
-    <div class="timeline-text"><strong data-i18n="tl-strong">预计上线节点：Aug 2025</strong><span data-i18n="tl-text"> · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV</span></div>
+    <div class="timeline-text"><strong data-i18n="tl-strong">预计上线节点：2026年10月</strong><span data-i18n="tl-text"> · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV</span></div>
   </div>
 </div>
 
@@ -300,7 +322,7 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
 <div class="div"></div>
 <div class="cl reveal">CASE 02 · YOSHINO POWER × UNDECIDED WITH MATT FERRELL</div>
 <div class="cb">
-  <div class="ct reveal"><div class="cn">02</div><div><div class="ctit" data-i18n="c2-title">0预算，179万粉博主自费测评</div><div class="chk" data-i18n="c2-sub">一次精准的pitch，胜过百万投放预算——当月销量+400%，搜索热度×10</div></div></div>
+  <div class="ct reveal"><div class="cn">02</div><div><div class="ctit" data-i18n="c2-title">0预算，179万粉博主自费测评</div><div class="chk" data-i18n="c2-sub">一次精准的pitch，胜过百万投放预算——当月销量+389%，搜索热度×10</div></div></div>
   <div class="g3">
     <div class="cd reveal reveal-delay-1"><div class="cdl" data-i18n="c2-l1">背景</div><div class="cdb" data-i18n="c2-d1">Yoshino Power 主打固态电池技术，进入欧美市场时品牌认知几乎为零，预算有限，无法依赖大规模付费投放。</div></div>
     <div class="cd reveal reveal-delay-2"><div class="cdl" data-i18n="c2-l2">洞察</div><div class="cdb" data-i18n="c2-d2">Matt Ferrell，179万订阅的新能源科普博主。他的受众对技术细节有强烈好奇心——恰恰是储能品牌最难触达也最值得触达的早期采用者。关键判断：他不是「科技网红」，他是这个品类的意见领袖。</div></div>
@@ -325,7 +347,7 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
   </a>
   <div class="g4">
     <div class="sc ssg reveal reveal-delay-1"><div class="sc-lbl" data-i18n="c2-s1">4条视频累计播放</div><div class="sc-row"><span class="sc-num" data-i18n="c2-s1v">400万+</span></div><canvas class="sc-chart" id="c1a"></canvas></div>
-    <div class="sc ssg reveal reveal-delay-2"><div class="sc-lbl" data-i18n="c2-s2">当月整体销量</div><div class="sc-row"><span class="sc-num">+400%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1b"></canvas></div>
+    <div class="sc ssg reveal reveal-delay-2"><div class="sc-lbl" data-i18n="c2-s2">当月整体销量</div><div class="sc-row"><span class="sc-num">+389%</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1b"></canvas></div>
     <div class="sc ssg reveal reveal-delay-3"><div class="sc-lbl" data-i18n="c2-s3">消费者搜索热度</div><div class="sc-row"><span class="sc-num">×10</span><span class="sc-badge">↑</span></div><canvas class="sc-chart" id="c1c"></canvas></div>
     <div class="sc ssg reveal reveal-delay-4"><div class="sc-lbl" data-i18n="c2-s4">品牌投入成本</div><div class="sc-row"><span class="sc-num">¥0</span></div><canvas class="sc-chart" id="c1d"></canvas></div>
   </div>
@@ -392,6 +414,51 @@ body{background:#EEECEA;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
   </div>
   <div class="qc reveal"><div class="qt" data-i18n="c4-quote">"好的数据是加注的信号，不是收手的理由。预热期数据强劲时，我选择主动推动追加预算——这个决定直接决定了最终结果的量级。"</div></div>
 </div>
+
+<!-- MEDIA WALL -->
+<section class="media-wall reveal" aria-labelledby="media-heading">
+  <div class="div"></div>
+  <div class="cl">MEDIA RELATIONS</div>
+  <h2 class="media-heading" id="media-heading" data-i18n="media-title">合作媒体</h2>
+  <p class="media-caption" data-i18n="media-caption">曾合作的媒体，覆盖科技、能源与生活方式领域。</p>
+  <div class="media-controls"><button class="media-toggle" type="button" aria-pressed="false" onclick="toggleMedia(this)" data-i18n="media-pause">暂停滚动</button></div>
+  <div class="media-marquee" id="media-marquee">
+<div class="media-track">
+<ul class="media-group">
+<li class="media-name">TechCrunch</li>
+<li class="media-name">VentureBeat</li>
+<li class="media-name">Wired</li>
+<li class="media-name">ZDNet</li>
+<li class="media-name">Gizmodo</li>
+<li class="media-name">Engadget</li>
+</ul>
+<ul class="media-group" aria-hidden="true">
+<li class="media-name">TechCrunch</li>
+<li class="media-name">VentureBeat</li>
+<li class="media-name">Wired</li>
+<li class="media-name">ZDNet</li>
+<li class="media-name">Gizmodo</li>
+<li class="media-name">Engadget</li>
+</ul>
+</div>
+<div class="media-track reverse">
+<ul class="media-group">
+<li class="media-name">CleanTechnica</li>
+<li class="media-name">Renewable Energy World</li>
+<li class="media-name">Vogue Business</li>
+<li class="media-name">Hypebeast</li>
+<li class="media-name">Tom's Hardware</li>
+</ul>
+<ul class="media-group" aria-hidden="true">
+<li class="media-name">CleanTechnica</li>
+<li class="media-name">Renewable Energy World</li>
+<li class="media-name">Vogue Business</li>
+<li class="media-name">Hypebeast</li>
+<li class="media-name">Tom's Hardware</li>
+</ul>
+</div>
+</div>
+</section>
 
 <!-- FOOTER -->
 <div class="footer reveal">
@@ -485,7 +552,7 @@ const i18n = {
   zh: {
     'hd': '海外品牌营销 · KOL策略 · 品牌冷启动<br><br>过去四年，主导智能硬件品牌在欧美日市场从0到1的上市。擅长以人群策略为起点，整合KOL、PR与视觉内容，打通从曝光到转化的完整链路。',
     'hs-label':'关键指标','hsl-gmv':'年GMV增长','hsl-crowd':'众筹累计','hsl-kol':'KOL匹配率','hsn-crowd':'$324万',
-    'pill1':'高端显示器品牌0到1冷启动，预计8月上线','pill2':'0预算撬动179万粉博主自费测评，当月销量+400%',
+    'pill1':'高端显示器品牌0到1冷启动，预计10月上线','pill2':'0预算撬动179万粉博主自费测评，当月销量+389%',
     'pill3':'跨时区视觉体系，广告CTR达行业均值3.5倍','pill4':'Kickstarter单项目众筹$111万，超额5595%',
     'tag1a':'#策略','tag1b':'#显示器','tag1c':'#进行中','tag2c':'#危机处理',
     'tag3a':'#视觉','tag3b':'#A/B测试','tag4a':'#众筹','tag4b':'#全链路','tag4c':'#3D打印',
@@ -502,11 +569,11 @@ const i18n = {
     'c1-s3l':'人群匹配率','c1-s3n':'高于行业均值',
     'kol1-sub':'253万 订阅','kol-tag-tech':'科技开箱 · 已确认合作',
     'kol2-sub':'2540万 订阅','kol-tag-tech2':'科技开箱 · 已确认合作',
-    'kol3-sub':'45.7万 订阅','kol3-tag':'极简美学 · 桌面设计 · 已确认合作',
+    'kol3-sub':'全网粉丝 87.3万','kol3-tag':'极简美学 · 桌面设计 · 已确认合作',
     'kol4-sub':'26.5万 订阅','kol4-tag':'日系桌面 · 生产力美学 · 已确认合作',
-    'tl-strong':'预计上线节点：Aug 2025','tl-text':' · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV',
+    'tl-strong':'预计上线节点：2026年10月','tl-text':' · 网站、KOL内容、Reddit/Discord社区同步启动，目标首月自然流量破万UV',
     'c2-title':'0预算，179万粉博主自费测评',
-    'c2-sub':'一次精准的pitch，胜过百万投放预算——当月销量+400%，搜索热度×10',
+    'c2-sub':'一次精准的pitch，胜过百万投放预算——当月销量+389%，搜索热度×10',
     'c2-l1':'背景','c2-d1':'Yoshino Power 主打固态电池技术，进入欧美市场时品牌认知几乎为零，预算有限，无法依赖大规模付费投放。',
     'c2-l2':'洞察','c2-d2':'Matt Ferrell，179万订阅的新能源科普博主。他的受众对技术细节有强烈好奇心——恰恰是储能品牌最难触达也最值得触达的早期采用者。关键判断：他不是「科技网红」，他是这个品类的意见领袖。',
     'c2-l3':'执行','c2-d3':'主动cold pitch，推送角度：固态电池技术在消费级产品中实际表现——他频道受众关注但尚未深度覆盖的内容盲点。他决定自费购买独立测试。全程0品牌付费，0产品赠送。',
@@ -533,13 +600,14 @@ const i18n = {
     'c4-ksview':'↗ 查看项目页面',
     'c4-s1':'最终众筹金额','c4-s2':'广告投入产出比','c4-s3':'项目在线周期','c4-s3v':'45天','c4-s4':'项目成功率',
     'c4-quote':'"好的数据是加注的信号，不是收手的理由。预热期数据强劲时，我选择主动推动追加预算——这个决定直接决定了最终结果的量级。"',
+    'media-pause':'暂停滚动','media-resume':'继续滚动','media-title':'合作媒体','media-caption':'曾合作的媒体，覆盖科技、能源与生活方式领域。',
     'footer-contact':'联系方式',
   },
   en: {
     'hd': `Global Brand Marketing · KOL Strategy · Brand Launch<br><br>Over the past four years, I've led smart hardware brands from zero to launch across the US, Europe, and Japan. I start with audience strategy, then integrate KOL partnerships, PR, and visual content to build a full-funnel path from awareness to conversion.`,
     'hs-label':'KEY METRICS','hsl-gmv':'Annual GMV Growth','hsl-crowd':'Total Crowdfunded','hsl-kol':'KOL Match Rate','hsn-crowd':'$3.24M',
-    'pill1':'Cold-launching a premium monitor brand from scratch — live August 2025',
-    'pill2':'Zero budget, 1.79M-subscriber creator self-funded a review — sales up 400% that month',
+    'pill1':'Cold-launching a premium monitor brand from scratch — expected October 2026',
+    'pill2':'Zero budget, 1.79M-subscriber creator self-funded a review — sales up 389% that month',
     'pill3':'Cross-timezone visual system — ad CTR at 3.5× industry average',
     'pill4':'Single Kickstarter campaign raised $1.11M — 5,595% funded',
     'tag1a':'#Strategy','tag1b':'#Monitor','tag1c':'#InProgress','tag2c':'#CrisisManagement',
@@ -557,11 +625,11 @@ const i18n = {
     'c1-s3l':'Audience match rate','c1-s3n':'Above industry benchmark',
     'kol1-sub':'2.53M subscribers','kol-tag-tech':'Tech unboxing · Partnership confirmed',
     'kol2-sub':'25.4M subscribers','kol-tag-tech2':'Tech unboxing · Partnership confirmed',
-    'kol3-sub':'457K subscribers','kol3-tag':'Minimal aesthetics · Desk design · Partnership confirmed',
+    'kol3-sub':'873K followers across platforms','kol3-tag':'Minimal aesthetics · Desk design · Partnership confirmed',
     'kol4-sub':'265K subscribers','kol4-tag':'Japanese desk setup · Productivity aesthetics · Partnership confirmed',
-    'tl-strong':'Projected launch: Aug 2025','tl-text':' · Website, KOL content, and Reddit/Discord communities launching simultaneously — targeting 10K+ organic UVs in month one',
+    'tl-strong':'Projected launch: October 2026','tl-text':' · Website, KOL content, and Reddit/Discord communities launching simultaneously — targeting 10K+ organic UVs in month one',
     'c2-title':'$0 Budget. 1.79M-Subscriber Creator Self-Funded the Review.',
-    'c2-sub':'One well-targeted pitch outperformed a seven-figure ad buy — sales up 400%, search volume up 10×',
+    'c2-sub':'One well-targeted pitch outperformed a seven-figure ad buy — sales up 389%, search volume up 10×',
     'c2-l1':'BACKGROUND','c2-d1':'Yoshino Power built its brand around solid-state battery technology, but had near-zero name recognition in Western markets and a limited budget — paid media at scale wasn\'t an option.',
     'c2-l2':'INSIGHT','c2-d2':'Matt Ferrell — 1.79M subscribers in the clean energy space. His audience has a genuine appetite for technical depth — exactly the early adopters a battery brand struggles most to reach, and values most. Key call: he\'s not a "tech influencer." He\'s the category\'s opinion leader.',
     'c2-l3':'EXECUTION','c2-d3':'Initiated a cold pitch framed around a specific content gap: real-world solid-state battery performance in consumer products. He chose to purchase and test the unit independently. Zero brand payment. Zero product gifting.',
@@ -588,9 +656,18 @@ const i18n = {
     'c4-ksview':'↗ View campaign',
     'c4-s1':'Total amount raised','c4-s2':'Ad ROI','c4-s3':'Campaign duration','c4-s3v':'45 days','c4-s4':'Campaign success rate',
     'c4-quote':'"Strong data is a signal to push harder, not pull back. When pre-launch numbers looked good, I made the call to increase budget — that decision directly determined the scale of what we achieved."',
+    'media-pause':'Pause motion','media-resume':'Resume motion','media-title':'Media Collaborations','media-caption':'Media I have worked with across technology, energy, and lifestyle.',
     'footer-contact':'Contact',
   }
 };
+
+function toggleMedia(button) {
+  const paused = document.getElementById('media-marquee').classList.toggle('is-paused');
+  button.setAttribute('aria-pressed', String(paused));
+  button.dataset.i18n = paused ? 'media-resume' : 'media-pause';
+  const lang = document.querySelector('.lang-opt.active').dataset.lang;
+  button.textContent = i18n[lang][button.dataset.i18n];
+}
 
 function setLang(lang) {
   document.querySelectorAll('.lang-opt').forEach(el => {
